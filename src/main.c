@@ -4,8 +4,6 @@
 #include <unistd.h>
 #include <sys/wait.h>
 
-#define ICON "/usr/share/naughtea/icon.jpg"
-
 
 void usage(char const *name) {
     printf("USAGE:\n    %s <TIME>\n", name);
@@ -50,7 +48,7 @@ int main(int argc, char **argv) {
         execl("/usr/bin/notify-send", "notify-send",
                 "--urgency=normal",
                 "--expire-time=0",                  /* show permanent */
-                "--icon="ICON,                      /* show teapot image */
+                "--icon="NAUGHTEA_ICON,             /* show teapot image */
                 "Tea-time :)",                      /* notify requires a non-empty message */
                 NULL);
     }

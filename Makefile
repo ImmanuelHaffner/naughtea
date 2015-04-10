@@ -11,8 +11,9 @@ Q           ?= @
 
 BUILDDIR    := build
 CFG         ?= default
-NAME        ?= teatimer
+NAME        ?= naughtea
 SRCDIR      := src
+INSTALL_DIR := /usr/local
 
 
 # Necessary variables
@@ -47,8 +48,20 @@ ifeq ($(VERBOSE), 1)
     CFLAGS  += -v
 endif
 
-CFLAGS      += -W -Wall -pedantic -I$(SRCDIR)
+ICON        := $(INSTALL_DIR)/share/$(NAME)/icon.jpg
+CFLAGS      += -W -Wall -pedantic -I$(SRCDIR) -DNAUGHTEA_ICON="\"$(ICON)\""
 
+
+#=====================================================================================================================#
+#
+#   INSTALL
+#
+#=====================================================================================================================#
+
+install:
+	$(Q)sudo cp $(BIN) $(INSTALL_DIR)/bin/
+	$(Q)sudo mkdir -p $(INSTALL_DIR)/share/$(NAME)
+	$(Q)sudo cp icon.jpg $(INSTALL_DIR)/share/$(NAME)
 
 #=====================================================================================================================#
 #
