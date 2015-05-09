@@ -58,7 +58,7 @@ CFLAGS      += -W -Wall -pedantic -I$(SRCDIR) -DNAUGHTEA_ICON="\"$(ICON)\""
 #
 #=====================================================================================================================#
 
-install:
+install: all
 	$(Q)sudo cp $(BIN) $(INSTALL_DIR)/bin/
 	$(Q)sudo mkdir -p $(INSTALL_DIR)/share/$(NAME)
 	$(Q)sudo cp icon.jpg $(INSTALL_DIR)/share/$(NAME)
